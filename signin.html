@@ -36,5 +36,14 @@
             <button class="form__button js-signInButton" id="signinButton">Zaloguj się</button>
         </form>
     </div>
+<script>
+    let toSignInButton = document.querySelector(".js-signInButton");
+
+
+    toSignInButton.addEventListener("click", () => {
+    location.replace(`${location.origin}/tasks.html`)
+    });
+
+</script>
 </body>
 </html>

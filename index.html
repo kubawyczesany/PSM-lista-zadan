@@ -28,7 +28,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js" defer></script>
     <script src="js/tasks.js" defer></script>
     <script src="js/script.js" defer></script>
-    <script src="js/authentication.js" defer></script>
 </head>
 
 <body>
@@ -55,6 +54,17 @@
         </form>
     </div>
     <script>
+    let toSignInButton = document.querySelector(".js-button--signUp");
+    let toSignUpButton = document.querySelector(".js-signUpButton");
+
+    toSignInButton.addEventListener("click", () => {
+    location.replace(`${location.origin}/signin.html`)
+    });
+
+    toSignUpButton.addEventListener("click", () => {
+    location.replace(`${location.origin}/signup.html`)
+    });
+
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", function() {
             navigator.serviceWorker.register("serviceWorker.js")
