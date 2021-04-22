@@ -1,0 +1,16 @@
+{
+  "short_name": "Zadania",
+  "name": "Lista zadań",
+  "description": "Aplikacja do zapisywania zadań",
+  "icons": [
+    {
+      "src": "/images/task.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "white",
+  "display": "standalone",
+  "theme_color": "#db4938"
+}

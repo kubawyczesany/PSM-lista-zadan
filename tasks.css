@@ -1,0 +1,68 @@
+.listOfTasks {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.listedTask {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.listedTask--hidden {
+    display: none;
+}
+
+.listedTask__button {
+    margin: 10px;
+    height: 30px;
+    width: 30px;
+    color: white;
+    box-shadow: none;
+    border: none;
+    align-self: center;
+    padding: 10px;
+    display: flex;
+    transition: 0.5s;
+}
+
+.listedTask__button:hover {
+    opacity: 0.7;
+}
+
+.fas, .far {
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.fas--none {
+    display: none;
+}
+
+.fas {
+    display: inline-block;
+}
+
+.listedTask__button--doner {
+    background-color: green;
+}
+
+.listedTask__button--remover {
+    background-color: rgb(231, 40, 40);
+}
+
+.listedTask__content, .listedTask__content--done {
+    flex-grow: 1;
+    align-self: center;
+    white-space: normal;
+    text-overflow: visible;
+    padding: 5px;
+}
+
+.listedTask__content--done {
+    text-decoration: line-through;
+}
