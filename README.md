@@ -1,3 +1,3 @@
 # Lista Zadań
 
-kubawyczesany.github.io/
+https://kubawyczesany.github.io/
