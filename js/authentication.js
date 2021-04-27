@@ -72,6 +72,7 @@ toSignUpButton.addEventListener("click", () => {
 });
 
 signOutButton.addEventListener("click", () => {
+  firebase.auth().signOut();
   localStorage.removeItem("user");
   checkUser();
   location.reload();
