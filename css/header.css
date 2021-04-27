@@ -1,6 +1,14 @@
+.header {
+    color: black;
+    font-size: 40px;
+    padding-bottom: 20px;
+    font-family: 'Comfortaa', cursive;
+}
+
 .header-centered {
     color: teal;
     font-family: 'Comfortaa', cursive;
     font-size: 2em;
     padding: 80px 30px;
 }
+

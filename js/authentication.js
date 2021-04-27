@@ -1,12 +1,23 @@
+let header = document.querySelector(".header");
+
 let toSignInButton = document.querySelector(".js-button--signIn");
 let toSignUpButton = document.querySelector(".js-button--signUp");
+let signOutButton = document.querySelector(".js-signout");
+
+let containerTasks = document.querySelector(".js-containerTasks");
+let containerSignIn = document.querySelector(".js-containerSignIn");
+let containerSignUp = document.querySelector(".js-containerSignUp");
+let containerMain = document.querySelector(".js-containerMain");
+
+let mainButtons = document.querySelectorAll(".button");
 
 let signUpForm = document.querySelector(".js-signupForm");
 let signInForm = document.querySelector(".js-signinForm");
 
-const checkUser = (user) => {
-  if (user) {
+const checkUser = () => {
+  if (localStorage.getItem('user')) {
     header.classList.toggle("header-centered");
+    header.innerText = "Lista Zadań";
     toSignInButton.classList.toggle("hidden");
     containerTasks.classList.toggle("hidden");
     containerMain.classList.toggle("hidden");
@@ -19,16 +30,10 @@ function signupUser() {
   let password = document.querySelector('#signupPassword').value;
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(() => {
-      let user = firebase.auth().currentUser;
-      let uid;
-      let firebaseRef = firebase.database().ref();
-      let userData = {
-        userName: name,
-        userEmail: email,
-        userPasword: password,
-      }
-      firebaseRef.child(uid).set(userData);
+    .then((cred) => {
+
+      localStorage.setItem('user', JSON.stringify(cred.user.uid));
+      containerSignUp.classList.toggle("hidden");
       checkUser();
     })
     .catch((error) => {
@@ -39,27 +44,38 @@ function signupUser() {
 function signinUser() {
   let email = document.querySelector('#signinEmail').value;
   let password = document.querySelector('#signinPassword').value;
-  firebase.auth().signInWithEmailAndPassword(email.value, password.value)
-  .then((cred) => {
-    let user = firebase.auth().currentUser;
-    checkUser(user);
-  })
-  .catch(err => console.log(err));
-}
 
-const onSignIn = (event) => {
-  event.preventDefault();
-  signinUser();
-  checkUser();
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((cred) => {
+      let user = firebase.auth().currentUser;
+
+      localStorage.setItem('user', JSON.stringify(cred.user.uid));
+
+      containerSignIn.classList.toggle("hidden");
+      checkUser();
+    })
+    .catch(err => console.log(err));
 }
 
 toSignInButton.addEventListener("click", () => {
-  location.replace(`${location.origin}/signin.html`)
+  header.innerText = "Zaloguj się";
+
+  containerSignIn.classList.toggle("hidden");
+  mainButtons.forEach(b => b.classList.toggle("hidden"));
 });
 
 toSignUpButton.addEventListener("click", () => {
-  location.replace(`${location.origin}/signup.html`)
+  header.innerText = "Zarejestruj się";
+
+  containerSignUp.classList.toggle("hidden");
+  mainButtons.forEach(b => b.classList.toggle("hidden"));
 });
+
+signOutButton.addEventListener("click", () => {
+  localStorage.removeItem("user");
+  checkUser();
+  location.reload();
+})
 
 signUpForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -74,5 +90,3 @@ signInForm.addEventListener("submit", (e) => {
 checkUser();
 
 
-
-console.log(location.origin);

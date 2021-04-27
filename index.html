@@ -26,13 +26,38 @@
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js" defer></script>
+    <script src="js/tasks.js" defer></script>
     <script src="js/script.js" defer></script>
+    <script src="js/authentication.js" defer></script>
 </head>
 
 <body>
     <header class="header header-centered">
         <h1 class="header__title">Lista zadań</h1>
     </header>
+    <div class="container hidden js-containerTasks">
+        <section class="section">
+            <h2 class="section__header">Dodaj nowe zadanie</h2>
+        </section>
+        <section class="section section--margin">
+            <div class="section__div">
+                <form class="form js-form"><input class="form__input js-input" placeholder="Co jest do zrobienia?"
+                        autofocus><button type="reset" class="form__button">Dodaj
+                        zadanie</button>
+                </form>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section__header">Lista zadań</h2>
+            <span class="section__span js-buttons-start"></span>
+        </section>
+        <section class="section">
+            <div class="section__div section__div--tasks">
+                <ul class="listOfTasks js-tasks" id='task-list'></ul>
+            </div>
+        </section>
+        <button class="section__button js-signout">Wyloguj się</button>
+    </div>
     <div class="container container--moved js-containerMain">
         <button class="button js-button--signIn">Zaloguj się</button>
         <button class="button button--highlighted js-button--signUp">Zarejestruj się</button>
@@ -40,7 +65,8 @@
     <div class="container hidden js-containerSignIn">
         <form class="form js-signinForm">
             <input class="form__input" id="signinEmail" type="email" placeholder="email" required>
-            <input class="form__input form__input--moved" id="signinPassword" type="password" placeholder="hasło" required>
+            <input class="form__input form__input--moved" id="signinPassword" type="password" placeholder="hasło"
+                required>
             <button class="form__button js-signInButton" id="signinButton">Zaloguj się</button>
         </form>
     </div>
@@ -48,29 +74,19 @@
         <form class="form js-signupForm">
             <input class="form__input" id="signupName" placeholder="login" required>
             <input class="form__input form__input--moved" id="signupEmail" type="email" placeholder="email" required>
-            <input class="form__input form__input--moved" id="signupPassword" type="password" placeholder="hasło" required>
+            <input class="form__input form__input--moved" id="signupPassword" type="password" placeholder="hasło"
+                required>
             <button class="form__button js-signUpButton" id="signupButton">Zarejestruj się</button>
         </form>
     </div>
     <script>
-    let toSignInButton = document.querySelector(".js-button--signIn");
-    let toSignUpButton = document.querySelector(".js-button--signUp");
-
-    toSignInButton.addEventListener("click", () => {
-    location.replace(`${location.origin}/signin.html`)
-    });
-
-    toSignUpButton.addEventListener("click", () => {
-    location.replace(`${location.origin}/signup.html`)
-    });
-
-    if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function() {
-            navigator.serviceWorker.register("serviceWorker.js")
-            .then(res => console.log("service worker registered"))
-            .catch(err => console.log("service worker not registered", err))
-        })
-    }
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", function() {
+                navigator.serviceWorker.register("serviceWorker.js")
+                    .then(res => console.log("service worker registered"))
+                    .catch(err => console.log("service worker not registered", err))
+            })
+        }
     </script>
 </body>
 
