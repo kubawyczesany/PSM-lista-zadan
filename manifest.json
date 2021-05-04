@@ -4,7 +4,7 @@
   "description": "Aplikacja do zapisywania zadań",
   "icons": [
     {
-      "src": "/images/task.png",
+      "src": "./images/task.png",
       "type": "image/png",
       "sizes": "192x192"
     }
