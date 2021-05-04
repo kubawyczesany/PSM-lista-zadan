@@ -1,3 +1,3 @@
 # Lista Zadań
 
-https://kubawyczesany.github.io/
+https://olgasowlet.github.io/PSM-lista-zadan/
