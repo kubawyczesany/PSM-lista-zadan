@@ -1,7 +1,7 @@
 var cacheName = 'zadania';
 var filesToCache = [
   'https://olgasowlet.github.io/PSM-lista-zadan/',
-  'https://olgasowlet.github.io/PSM-lista-zadan/index.html',
+  // 'https://olgasowlet.github.io/PSM-lista-zadan/index.html',
   './',
   './index.html',
   './css/button.css',
