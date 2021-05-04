@@ -4,14 +4,18 @@
   "description": "Aplikacja do zapisywania zadań",
   "icons": [
     {
-      "src": "./images/task.png",
+      "src": "https://olgasowlet.github.io/PSM-lista-zadan/images/task.png",
       "type": "image/png",
       "sizes": "192x192"
     }
   ],
   "start_url": "./index.html",
-  "background_color": "white",
+  "background_color": "#ffffff",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#db4938"
+  "theme_color": "#db4938",
+  "url": "https://olgasowlet.github.io/PSM-lista-zadan/",
+  "manifestUrl": "https://olgasowlet.github.io/PSM-lista-zadan/manifest.json",
+  "lang": "",
+  "screenshots": []
 }
