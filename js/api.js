@@ -1,3 +1,9 @@
+let addButtonElement = document.querySelector(".js-button-addTask");
+
+addButtonElement.addEventListener("click", () => {
+  vibrate(1000);
+})
+
 function vibrate (ms) {
   navigator.vibrate(ms);
 }
