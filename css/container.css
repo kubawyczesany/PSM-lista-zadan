@@ -21,6 +21,7 @@
 }
 
 .section__header {
+    font-family: 'Comfortaa', cursive;
     margin: 0;
     flex-grow: 1;
     align-self: center;
@@ -48,9 +49,7 @@
         flex-direction: column;
         align-items: flex-start;
     }
-    .section__header {
-        margin-bottom: 15px;
-    }
+    
     .section__button {
         margin: 5px 0;
     }
@@ -73,4 +72,22 @@
 
 .hidden {
     display: none;
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.location__button {
+    border: none;
+    color: teal;
+    font-size: 1.3em;
+}
+
+.location__link {
+    color: teal;
+    text-decoration: none;
 }
